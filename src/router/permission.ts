@@ -37,21 +37,21 @@ router.beforeEach(async (to, from, next) => {
   }
 
   // 获取用户信息
-  const { data, error } = await userAccountStore.getUserInfo()
+  // const { data, error } = await userAccountStore.getUserInfo()
 
-  if (error) {
-    userAccountStore.setLanguage({
-      locale: currentRouteLocale || userAccountStore.locale
-    })
-    Cookie.remove('token')
-    next(`/${ currentRouteLocale || userAccountStore.locale }/user/login`)
-    return
-  }
+  // if (error) {
+  //   userAccountStore.setLanguage({
+  //     locale: currentRouteLocale || userAccountStore.locale
+  //   })
+  //   Cookie.remove('token')
+  //   next(`/${ currentRouteLocale || userAccountStore.locale }/user/login`)
+  //   return
+  // }
 
   // TODO: It must be used together with the backend
-  userAccountStore.setLanguage({
-    locale: currentRouteLocale || data!.language
-  })
+  // userAccountStore.setLanguage({
+  //   locale: currentRouteLocale || data!.language
+  // })
   next()
 
 })
